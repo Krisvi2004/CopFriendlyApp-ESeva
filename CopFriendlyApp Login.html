@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CopFriendlyApp Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .login-container {
+        background-color: #fff;
+        padding: 30px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+    }
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+    }
+    input[type="text"], input[type="password"] {
+        width: calc(100% - 20px);
+        padding: 10px;
+        margin-bottom: 20px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: #0056b3;
+    }
+    .error-message {
+        color: red;
+        margin-bottom: 10px;
+    }
+    .traffic-icon {
+        font-size: 40px;
+        color: #007bff;
+        margin-bottom: 20px;
+    }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+    <i class="traffic-icon fas fa-user-shield"></i>
+    <h2>CopFriendlyApp Login</h2>
+    <form id="loginForm" onsubmit="return validateForm()">
+        <input type="text" id="username" placeholder="Username">
+        <input type="password" id="password" placeholder="Password">
+        <div id="errorMessage" class="error-message"></div>
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<!-- Font Awesome CDN for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<script>
+    function validateForm() {
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var errorMessage = document.getElementById("errorMessage");
+        
+        // Perform basic validation
+        if (username.trim() === "" || password.trim() === "") {
+            errorMessage.textContent = "Username and password are required";
+            return false;
+        }
+        
+        // Dummy authentication logic
+        if (username === "trafficcop" && password === "password1") {
+            alert("Login successful as Traffic Cop");
+            return true;
+        } else if (username === "trafficcentral" && password === "password2") {
+            alert("Login successful as Traffic Central Team");
+            return true;
+        } else if (username === "medicalrapid" && password === "password3") {
+            alert("Login successful as Medical Rapid Force");
+            return true;
+        } else {
+            errorMessage.textContent = "Invalid username or password";
+            return false;
+        }
+    }
+</script>
+
+</body>
+</html>
